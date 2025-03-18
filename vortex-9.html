@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex 9 - Space Shooter Adventure | FatGames</title>
+    <meta name="description" content="Embark on an epic space adventure in Vortex 9! Battle through waves of enemies, upgrade your ship, and become the ultimate space warrior in this thrilling shooter game.">
+    <link rel="canonical" href="https://fatgames.shop/vortex-9" />
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Apple-inspired color scheme */
+        :root {
+            --apple-blue: #007AFF;
+            --apple-indigo: #5856D6;
+            --apple-purple: #AF52DE;
+            --apple-pink: #FF2D55;
+            --apple-red: #FF3B30;
+            --apple-orange: #FF9500;
+            --apple-yellow: #FFCC00;
+            --apple-green: #34C759;
+            --apple-teal: #5AC8FA;
+            --apple-cyan: #32ADE6;
+            --apple-gray: #8E8E93;
+            --apple-gray2: #AEAEB2;
+            --apple-gray3: #C7C7CC;
+            --apple-gray4: #D1D1D6;
+            --apple-gray5: #E5E5EA;
+            --apple-gray6: #F2F2F7;
+            --apple-black: #000000;
+            --apple-white: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: var(--apple-black);
+            background-color: var(--apple-gray6);
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: var(--apple-indigo);
+            color: var(--apple-white);
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--apple-indigo);
+            border-bottom: 2px solid var(--apple-gray4);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 1rem 0 0.5rem;
+            color: var(--apple-black);
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .game-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            margin-bottom: 2rem;
+            background-color: var(--apple-black);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .game-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .game-description {
+            background-color: var(--apple-white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .game-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature {
+            background-color: var(--apple-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--apple-indigo);
+        }
+
+        .gameplay-tips {
+            background-color: var(--apple-white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .tips-list {
+            list-style-type: none;
+        }
+
+        .tips-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .tips-list li:before {
+            content: "•";
+            color: var(--apple-green);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .weapons-section {
+            background-color: var(--apple-white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .weapon-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .weapon-category {
+            background-color: var(--apple-gray6);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .power-ups {
+            background-color: var(--apple-white);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .power-up-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .power-up-item {
+            background-color: var(--apple-gray6);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: var(--apple-indigo);
+            color: var(--apple-white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .game-container {
+                padding-top: 75%; /* Adjust aspect ratio for mobile */
+            }
+            
+            .game-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .weapon-categories, .power-up-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .weapon-categories, .power-up-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Vortex 9</h1>
+            <p class="tagline">Embark on an epic space adventure in this thrilling shooter game!</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="game-container">
+            <iframe class="game-iframe" src="https://www.crazygames.com/embed/vortex-9-ubs" frameborder="0" allow="gamepad *;" title="Play Vortex 9 online" allowfullscreen></iframe>
+        </section>
+        
+        <section class="game-description">
+            <h2>About Vortex 9</h2>
+            <p>Vortex 9 is an exhilarating space shooter that puts you in control of a powerful spacecraft in a battle against alien forces. Navigate through treacherous asteroid fields, engage in intense dogfights, and upgrade your ship with advanced weaponry as you progress through increasingly challenging levels.</p>
+            <p>With its stunning space graphics, smooth controls, and addictive gameplay, Vortex 9 offers an immersive gaming experience that will keep you coming back for more. Master different weapons, collect power-ups, and become the ultimate space warrior!</p>
+        </section>
+        
+        <h2>Game Features</h2>
+        <div class="game-features">
+            <div class="feature">
+                <h3>Dynamic Space Combat</h3>
+                <p>Engage in intense space battles with responsive controls and fluid movement mechanics.</p>
+            </div>
+            
+            <div class="feature">
+                <h3>Ship Upgrades</h3>
+                <p>Enhance your spacecraft with powerful weapons, improved shields, and special abilities.</p>
+            </div>
+            
+            <div class="feature">
+                <h3>Multiple Enemy Types</h3>
+                <p>Face off against various alien ships, each with unique attack patterns and behaviors.</p>
+            </div>
+            
+            <div class="feature">
+                <h3>Progressive Difficulty</h3>
+                <p>Challenge yourself through increasingly difficult levels with unique boss battles.</p>
+            </div>
+        </div>
+        
+        <section class="weapons-section">
+            <h2>Weapon Systems</h2>
+            <p>Master a diverse arsenal of weapons to defeat your enemies:</p>
+            
+            <div class="weapon-categories">
+                <div class="weapon-category">
+                    <h3>Laser Cannons</h3>
+                    <p>Fast-firing energy weapons perfect for taking down smaller enemies.</p>
+                </div>
+                
+                <div class="weapon-category">
+                    <h3>Plasma Blasters</h3>
+                    <p>Powerful energy weapons that deal massive damage to larger targets.</p>
+                </div>
+                
+                <div class="weapon-category">
+                    <h3>Missile Systems</h3>
+                    <p>Homing missiles that track and destroy evasive enemies.</p>
+                </div>
+                
+                <div class="weapon-category">
+                    <h3>Shield Generators</h3>
+                    <p>Protective barriers that absorb incoming damage.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="power-ups">
+            <h2>Power-Ups</h2>
+            <p>Collect special items to enhance your combat capabilities:</p>
+            
+            <div class="power-up-grid">
+                <div class="power-up-item">
+                    <h3>Health Restore</h3>
+                    <p>Replenish your ship's health and continue the fight.</p>
+                </div>
+                
+                <div class="power-up-item">
+                    <h3>Weapon Boost</h3>
+                    <p>Temporarily increase your weapon damage output.</p>
+                </div>
+                
+                <div class="power-up-item">
+                    <h3>Shield Recharge</h3>
+                    <p>Restore and strengthen your ship's protective shields.</p>
+                </div>
+                
+                <div class="power-up-item">
+                    <h3>Speed Boost</h3>
+                    <p>Increase your ship's maneuverability and speed.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="gameplay-tips">
+            <h2>Pro Tips for Success</h2>
+            <ul class="tips-list">
+                <li><strong>Master movement:</strong> Learn to dodge enemy fire while maintaining accurate shots.</li>
+                <li><strong>Prioritize targets:</strong> Focus on the most dangerous enemies first to reduce incoming damage.</li>
+                <li><strong>Collect power-ups:</strong> Don't miss any power-ups as they can turn the tide of battle.</li>
+                <li><strong>Upgrade wisely:</strong> Choose upgrades that complement your playstyle and current challenges.</li>
+                <li><strong>Watch your health:</strong> Keep an eye on your health bar and collect health power-ups when needed.</li>
+                <li><strong>Learn patterns:</strong> Study enemy movement patterns to predict and avoid their attacks.</li>
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 FatGames. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
